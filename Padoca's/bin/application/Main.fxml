@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="820" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <Pane fx:id="botoes" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #876;">
+         <children>
+            <Pane fx:id="logo" layoutX="10.0" layoutY="10.0" prefHeight="180.0" prefWidth="180.0" style="-fx-background-radius: 15; -fx-background-color: #FFF;">
+               <children>
+                  <Pane layoutX="7.0" layoutY="23.0" />
+                  <ImageView fitHeight="150.0" fitWidth="173.0" layoutX="3.0" layoutY="14.0">
+                     <image>
+                        <Image url="@logo.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Accordion layoutX="10.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="180.0">
+              <panes>
+                <TitledPane style="-fx-background-color: #d9ba5b;" text="Cadastros">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="154.0" prefWidth="200.0" style="-fx-background-color: #faf6ea;">
+                           <children>
+                              <Button fx:id="btn_cadfunc" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="5.0" onAction="#abreTelaCF" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ecdcac; -fx-border-color: #876; -fx-border-width: 3;" text="Funcionários" textAlignment="CENTER" />
+                              <Button fx:id="btn_cadprod" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="42.0" onAction="#abreTelaCP" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ecdcac; -fx-border-color: #876; -fx-border-width: 3;" text="Produtos" textAlignment="CENTER" />
+                              <Button fx:id="btn_cadfunclista" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="79.0" onAction="#abreTelaCFLista" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ecdcac; -fx-border-color: #876; -fx-border-width: 3;" text="Funcionários Cadastrados" textAlignment="CENTER" />
+                              <Button fx:id="btn_cadprodlista" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="116.0" onAction="#abreTelaCPLista" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ecdcac; -fx-border-color: #876; -fx-border-width: 3;" text="Produtos Cadastrados" textAlignment="CENTER" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane text="Caixa">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #faf6ea;">
+                           <children>
+                              <Button fx:id="btn_saida" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="42.0" onAction="#abreTelaSaida" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ecdcac; -fx-border-color: #876; -fx-border-width: 3;" text="Fechar Pedido" textAlignment="CENTER" />
+                              <Button fx:id="btn_cobranca" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="5.0" onAction="#abreTelaCobranca" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ecdcac; -fx-border-color: #876; -fx-border-width: 3;" text="Adicionar Produtos" textAlignment="CENTER" />
+                           	  <Button fx:id="btn_fpagamento" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="79.0" onAction="#abreTelaFPagamento" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ecdcac; -fx-border-color: #876; -fx-border-width: 3;" text="Forma de pagamento" textAlignment="CENTER" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane text="Relatórios">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #faf6ea;">
+                           <children>
+                              <Button fx:id="btn_relfat" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="5.0" onAction="#abreTelaRF" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ecdcac; -fx-border-color: #876; -fx-border-width: 3;" text="Faturamento" textAlignment="CENTER" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+         </children>
+      </Pane>
+      <Pane fx:id="tela" layoutX="200.0" prefHeight="600.0" prefWidth="824.0" style="-fx-background-color: #432;">
+         <children >
+            <Pane fx:id="contenedor" layoutX="10.0" layoutY="44.0" prefHeight="400" prefWidth="600" style="-fx-background-radius: 15; -fx-background-color: #faf6ea;" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

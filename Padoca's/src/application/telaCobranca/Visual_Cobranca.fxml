@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox prefHeight="330.0" prefWidth="550.0" BorderPane.alignment="BOTTOM_LEFT">
+         <children>
+            <TableView fx:id="tabelaRegistroItemComanda" editable="true" prefHeight="312.0" prefWidth="586.0">
+              <columns>
+                <TableColumn fx:id="codigoCol" prefWidth="75.0" text="Código" />
+                <TableColumn fx:id="descricaoCol" prefWidth="510.0" text="Descrição" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="585.0" spacing="20.0">
+                     <children>
+                        <Label text="Valor  total" />
+                        <TextField />
+                     </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="BASELINE_RIGHT" prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Adicionar" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="2.0" prefWidth="90.0" text="Remover" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="2.0" prefWidth="150.0" text="Concluir" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </bottom>
+   <right>
+      <ScrollBar orientation="VERTICAL" BorderPane.alignment="CENTER" />
+   </right>
+   <top>
+      <Pane prefHeight="43.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="13.0" text="Registro de Itens da Comanda">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <HBox alignment="CENTER_RIGHT" layoutX="394.0" layoutY="-1.0" prefHeight="45.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Cancelar">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="190.0" prefHeight="43.0" prefWidth="281.0" spacing="20.0">
+               <children>
+                  <TextField prefHeight="25.0" prefWidth="111.0" />
+                  <Button mnemonicParsing="false" text="Buscar" />
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </top>
+</BorderPane>
