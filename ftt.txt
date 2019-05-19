@@ -1,0 +1,162 @@
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+--
+-- Host: localhost    Database: ftt
+-- ------------------------------------------------------
+-- Server version	8.0.16
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `comanda`
+--
+
+DROP TABLE IF EXISTS `comanda`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `comanda` (
+  `idComanda` int(10) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(100) NOT NULL,
+  `dtInicioCompra` datetime DEFAULT NULL,
+  `dtFimCompra` datetime DEFAULT NULL,
+  PRIMARY KEY (`idComanda`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `formapagamento`
+--
+
+DROP TABLE IF EXISTS `formapagamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `formapagamento` (
+  `idFormaPag` int(10) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  PRIMARY KEY (`idFormaPag`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `funcao`
+--
+
+DROP TABLE IF EXISTS `funcao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `funcao` (
+  `idFuncao` int(10) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  PRIMARY KEY (`idFuncao`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `funcionarios`
+--
+
+DROP TABLE IF EXISTS `funcionarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `funcionarios` (
+  `idFuncionario` int(10) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `idFuncao` int(10) NOT NULL,
+  PRIMARY KEY (`idFuncionario`),
+  KEY `fk_Funcionarios_1_idx` (`idFuncao`),
+  CONSTRAINT `fk_Funcionarios_1` FOREIGN KEY (`idFuncao`) REFERENCES `funcao` (`idFuncao`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `pag_prod`
+--
+
+DROP TABLE IF EXISTS `pag_prod`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `pag_prod` (
+  `idPag_Prod` int(10) NOT NULL AUTO_INCREMENT,
+  `idPagamento` int(10) NOT NULL,
+  `idProduto` int(10) NOT NULL,
+  `Qtd_Prod` decimal(20,2) NOT NULL,
+  PRIMARY KEY (`idPag_Prod`),
+  KEY `fk_Pag_Prod_1_idx` (`idPagamento`),
+  KEY `fk_Pag_Prod_2_idx` (`idProduto`),
+  CONSTRAINT `fk_Pag_Prod_1` FOREIGN KEY (`idPagamento`) REFERENCES `pagamento` (`idPagamento`),
+  CONSTRAINT `fk_Pag_Prod_2` FOREIGN KEY (`idProduto`) REFERENCES `produtos` (`idProduto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `pagamento`
+--
+
+DROP TABLE IF EXISTS `pagamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `pagamento` (
+  `idPagamento` int(10) NOT NULL AUTO_INCREMENT,
+  `idComanda` int(10) NOT NULL,
+  `idFormaPag` int(10) NOT NULL,
+  `idFuncionario` int(10) NOT NULL,
+  PRIMARY KEY (`idPagamento`),
+  KEY `fk_Pagamento_1_idx` (`idFormaPag`),
+  KEY `fk_Pagamento_2_idx` (`idComanda`),
+  KEY `fk_Pagamento_3_idx` (`idFuncionario`),
+  CONSTRAINT `fk_Pagamento_1` FOREIGN KEY (`idFormaPag`) REFERENCES `formapagamento` (`idFormaPag`),
+  CONSTRAINT `fk_Pagamento_2` FOREIGN KEY (`idComanda`) REFERENCES `comanda` (`idComanda`),
+  CONSTRAINT `fk_Pagamento_3` FOREIGN KEY (`idFuncionario`) REFERENCES `funcionarios` (`idFuncionario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `produtos`
+--
+
+DROP TABLE IF EXISTS `produtos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `produtos` (
+  `idProduto` int(10) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(10) NOT NULL,
+  `idTipo` int(10) NOT NULL,
+  `preco` decimal(20,0) NOT NULL,
+  PRIMARY KEY (`idProduto`),
+  KEY `fk_Produtos_1_idx` (`idTipo`),
+  CONSTRAINT `fk_Produtos_1` FOREIGN KEY (`idTipo`) REFERENCES `tipo` (`idTipo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tipo`
+--
+
+DROP TABLE IF EXISTS `tipo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tipo` (
+  `idTipo` int(10) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(50) NOT NULL,
+  PRIMARY KEY (`idTipo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-05-19 18:04:43
