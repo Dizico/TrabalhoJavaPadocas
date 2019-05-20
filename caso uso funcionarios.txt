@@ -1,0 +1,56 @@
+Caso de uso - Cadastro de Funcionários
+
+01 - Usuário (gerente / dono) clica em cadastro de Funcionários
+02 - sistema devolve a tela inicial com a listagem completa dos Funcionários cadastrados e botões de ação
+03 - usuário clica em incluir
+04 - sistema devolve formulário para preenchimento dos dados do Funcionário
+05 - usuário preenche os dados e clica em confirmar
+06 - sistema grava novo Funcionário e retorna à tela principal do cadastro
+
+
+==========================================================================
+
+
+Fluxo alternativo 01 (a partir de 02)
+
+01 - usuário clica em sair
+02 - sistema retorna à tela inicial
+
+
+==========================================================================
+
+Fluxo alternativo 02 (a partir de 02)
+
+01 - usuário seleciona um Funcionário e clica em alterar
+02 - sistema devolve formulário com os dados do Funcionário para alteração
+03 - usuário altera os dados e clica em confirmar
+04 - sistema grava alteração e retorna à tela principal do cadastro
+
+==========================================================================
+
+
+Fluxo alternativo 03.1 (a partir de 02)
+
+01 - usuário seleciona um Funcionário e clica em excluir
+02 - sistema solicita confirmação
+03 - usuário clica em confirmar
+04 - sistema exclui registro do Funcionário e retorna à tela principal do cadastro
+
+==========================================================================
+
+
+Fluxo alternativo 03.2 (a partir de 02)
+
+01 - usuário seleciona um Funcionário e clica em excluir
+02 - sistema solicita confirmação
+03 - usuário clica em cancelar
+04 - sistema retorna à tela principal do cadastro
+
+
+==========================================================================
+
+
+Fluxo alternativo 04 (a partir de 04)
+
+01 - usuário clica em cancelar
+02 - sistema retorna à tela principal do cadastro
