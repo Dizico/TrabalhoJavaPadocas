@@ -1,0 +1,21 @@
+Caso de uso - relatório de faturamento
+
+01 - usuário clica no botão relatórios
+02 - sistema devolve tela de parâmetros de filtragem do relatório (produto de, produto até, data de, data até,
+     sintético por produto /  sintético por tipo / sintético por data / analítico)
+03 - usuário seleciona produtos, datas e tipo de relatório
+04 - sistema devolve relatório com as informações filtradas de acordo com os parâmetros selecionados pelo usuário
+05 - usuário clica em imprimir
+06 - sistema envia o relatório para o spool de impressão
+
+==============================================================
+
+Alternativo 01 (a partir de 02)
+01 - usuário clica em cancelar
+02 - sistema retorna à tela inicial
+
+==============================================================
+
+Alternativo 02 (a partir de 04)
+01 - usuário clica em cancelar
+02 - sistema retorna à tela inicial
