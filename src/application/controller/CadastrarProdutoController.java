@@ -6,6 +6,7 @@ import application.exceptions.CampoInvalidoExcecao;
 import application.service.CadastrarFuncionarioServiceImpl;
 import application.service.CadastrarProdutoServiceImpl;
 import application.util.Utils;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,8 +26,6 @@ public class CadastrarProdutoController implements Initializable {
 
     @FXML
     private TextField textPreco;
-
-
 
     private ProdutoDto produtoDto;
 

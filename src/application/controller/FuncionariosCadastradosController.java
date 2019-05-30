@@ -29,8 +29,6 @@ import static application.util.Utils.*;
 
 public class FuncionariosCadastradosController implements Initializable {
 
-    private BaseDao dao;
-    private BaseMapperDto mapperDto;
 
     @FXML
     private TableView<FuncionariosCadastradosDto> tabelaFuncionarios;
@@ -53,8 +51,6 @@ public class FuncionariosCadastradosController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dao = new FuncionarioDao();
-        mapperDto = new FuncionariosCadastradosMapperDto();
         service = new FuncionariosCadastradosServiceImpl();
         listFuncaoAndFuncionario = service.getListFuncaoAndFuncionario();
 

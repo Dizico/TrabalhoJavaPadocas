@@ -1,13 +1,6 @@
 package application.data.domain;
 
 import application.data.domain.base.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
-@Data
-@EqualsAndHashCode
-@ToString
 public class FormaPagEntity extends BaseEntity {
 
     public FormaPagEntity() {
@@ -16,4 +9,20 @@ public class FormaPagEntity extends BaseEntity {
 
     private int idFormaPag;
     private String nome;
+
+    public int getIdFormaPag() {
+        return idFormaPag;
+    }
+
+    public void setIdFormaPag(int idFormaPag) {
+        this.idFormaPag = idFormaPag;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

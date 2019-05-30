@@ -1,13 +1,8 @@
 package application.data.domain;
 
 import application.data.domain.base.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
-@Data
-@ToString
-@EqualsAndHashCode
+
 public class TipoEntity extends BaseEntity{
 	
 	public TipoEntity(){
@@ -16,4 +11,20 @@ public class TipoEntity extends BaseEntity{
 
 	private int idTipo;
 	private String nome;
+
+	public int getIdTipo() {
+		return idTipo;
+	}
+
+	public void setIdTipo(int idTipo) {
+		this.idTipo = idTipo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 }

@@ -1,9 +1,6 @@
 package application.data.domain;
 
 import application.data.domain.base.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 public class ProdutoEntity extends BaseEntity {
     public ProdutoEntity() {

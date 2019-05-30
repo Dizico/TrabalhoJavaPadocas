@@ -33,7 +33,6 @@ public class Main extends Application
     public static void main(String[] args) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, SQLException, InstantiationException, ClassNotFoundException {
         FuncionarioDao base = new FuncionarioDao();
         launch(args);
-//        System.out.println(base.delete(new FuncionarioEntity()));
     }
     
 }

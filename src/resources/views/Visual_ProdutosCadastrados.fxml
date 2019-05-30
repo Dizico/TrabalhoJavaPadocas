@@ -12,51 +12,55 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <VBox alignment="TOP_CENTER" prefHeight="326.0" prefWidth="505.0" BorderPane.alignment="BOTTOM_LEFT">
-         <children>
-            <TableView editable="true" prefHeight="290.0" prefWidth="586.0">
-              <columns>
-                <TableColumn prefWidth="112.0" text="Tipo" />
-                <TableColumn prefWidth="321.0" text="Descrição" />
-                  <TableColumn prefWidth="152.0" text="Preço Unitário" />
-              </columns>
-            </TableView>
-            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="586.0" spacing="20.0">
-               <children>
-                  <Label text="Codigo/Descricao" />
-                  <TextField />
-                  <Button mnemonicParsing="false" text="Pesquisar" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </center>
-   <bottom>
-      <HBox alignment="BASELINE_RIGHT" prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="402.0" spacing="5.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" text="Adicionar Produto" />
-                  <Button mnemonicParsing="false" text="Remover Produto" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
-         </children>
-      </HBox>
-   </bottom>
-   <right>
-      <ScrollBar orientation="VERTICAL" BorderPane.alignment="CENTER" />
-   </right>
-   <top>
-      <Pane prefHeight="29.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="243.0" layoutY="7.0" text="Produtos cadastrados">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Label>
-         </children>
-      </Pane>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.controller.ProdutosCadastradosController">
+    <center>
+        <VBox alignment="TOP_CENTER" prefHeight="326.0" prefWidth="505.0" BorderPane.alignment="BOTTOM_LEFT">
+            <children>
+                <TableView fx:id="tabelaProdutos" editable="true" prefHeight="290.0" prefWidth="586.0">
+                    <columns>
+                        <TableColumn fx:id="colunaTipo" prefWidth="112.0" text="Tipo"/>
+                        <TableColumn fx:id="colunaDescricao" prefWidth="321.0" text="Descrição"/>
+                        <TableColumn fx:id="colunaPreco" prefWidth="152.0" text="Preço Unitário"/>
+                    </columns>
+                </TableView>
+                <HBox alignment="CENTER" prefHeight="46.0" prefWidth="586.0" spacing="20.0">
+                    <children>
+                        <Label text="Codigo/Descricao"/>
+                        <TextField fx:id="textPesquisar"/>
+                        <Button fx:id="btnPesquisar" onAction="#filtrar" mnemonicParsing="false" text="Pesquisar"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="BASELINE_RIGHT" prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="45.0" prefWidth="402.0" spacing="5.0">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" text="Adicionar Produto"/>
+                        <Button fx:id="btnRemoverProduto" onAction="#removerProduto" mnemonicParsing="false" text="Remover Produto"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0"/>
+            </children>
+        </HBox>
+    </bottom>
+    <right>
+        <ScrollBar orientation="VERTICAL" BorderPane.alignment="CENTER"/>
+    </right>
+    <top>
+        <Pane prefHeight="29.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="243.0" layoutY="7.0"
+                       text="Produtos cadastrados">
+                    <font>
+                        <Font name="System Bold" size="12.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </top>
 </BorderPane>

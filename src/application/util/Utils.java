@@ -9,6 +9,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -18,19 +20,9 @@ public class Utils {
     @SuppressWarnings("unchecked")
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            String url = "jdbc:mysql://localhost:3306/ftt";
-            String username ="root";
-            String password= "123456";
-            Connection con = null;
-            con = DriverManager.getConnection(url, username, password);
+            DataSource dataSource = DataSourceFactory.getDataSource();
+            Connection con = dataSource.getConnection();
             return con;
-        } catch (InstantiationException e) {
-            throw new CampoInvalidoExcecao(e.getMessage());
-        } catch (IllegalAccessException e) {
-            throw new CampoInvalidoExcecao(e.getMessage());
-        } catch (ClassNotFoundException e) {
-            throw new CampoInvalidoExcecao(e.getMessage());
         }catch (SQLException e) {
             e.printStackTrace();
         }
